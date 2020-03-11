@@ -33,11 +33,19 @@ const Title = styled.h4`
     margin: 0 0 0 1rem; /* TODO */
 `
 
-function Card({id, image, onClick, title}) {
+function Card({ id, image, onClick, title }) {
+
+    const handleClick = (ev) => {
+        onClick()
+        ev.stopPropagation();
+        ev.preventDefault();
+        return false;
+    }
+
   return (
       <Anchor
-          href="#"
-          onclick={onClick}
+          href=""
+          onClick={handleClick}
       >
           <picture>
               <Img src={'/assets/' + image} alt={title}></Img>

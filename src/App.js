@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import styled from 'styled-components';
 
 import Card from './Card.js'
+import Panel from './Panel.js'
 
 const Container = styled.div`
     align-items: stretch;
@@ -33,19 +34,35 @@ const SHOWS = 'Gold Digger.jpeg Liar.jpeg Little Women- LA.jpeg MKR.jpeg Pooch P
 
 function App() {
 
-    const updateDetail = () => { };
+    const [selection, setSelection] = useState(null);
 
-  return (
-    <Container>
-          {SHOWS.map(({id, image, title}) => (
-              <Card
-                key={id}
-                image={image}
-                  onClick={updateDetail(id)}
-                title={title}
-            />
-        ))}
-    </Container>
+    const [wantPanel, setWantPanel] = useState(false);
+
+    const handleCardClick = (show) => {
+        setWantPanel(true);
+        setSelection(show);
+    }
+
+    const handlePanelClick = () => {
+        setWantPanel(false);
+    }
+
+    return (
+        <Container>
+            {SHOWS.map(show => (
+                <Card
+                    key={show.id}
+                    image={show.image}
+                    onClick={() => handleCardClick(show)}
+                    title={show.title}
+                />
+            ))}
+            <Panel
+                onClick={handlePanelClick}
+                visible={wantPanel}
+                show={selection}>
+            </Panel>
+        </Container>
   );
 }
 
