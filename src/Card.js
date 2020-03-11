@@ -6,6 +6,11 @@ const Anchor = styled.a`
     display: block;
     margin: 8px 16px;
     position: relative;
+
+    @media (min-width: 768px) {
+        flex: 0 0 300px;
+    }
+
 `;
 const Img = styled.img`
     width: 100%;
@@ -31,6 +36,10 @@ const Title = styled.h4`
     color: white; /* TODO */
     font-size: 28px; /* TODO */
     margin: 0 0 0 1rem; /* TODO */
+
+    @media (min-width: 768px) {
+        font-size: 24px; /* TODO */
+    }
 `
 
 function Card({ id, image, onClick, title }) {

@@ -11,8 +11,14 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 8px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    }
+
 `;
-// const Panel = styled.div``;
 
 
 // Test Data

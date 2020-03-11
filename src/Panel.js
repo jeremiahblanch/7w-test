@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import Card from './Card.js'
+
 const Outer = styled.div`
     background-color: #fff;
     display: flex;
@@ -32,9 +34,13 @@ function Panel({onClick, visible, show}) {
       <Outer
           onClick={onClick}
           visible={visible ? 1 : 0}>
-          {show ? <picture>
-              <Img src={'/assets/' + show.image} alt={show.title}></Img>
-          </picture>
+          {show ? <Card
+                    key={show.id}
+                    image={show.image}
+                    onClick={onClick}
+                    title={show.title}
+                />
+
           : ''}
         </Outer>
   );
