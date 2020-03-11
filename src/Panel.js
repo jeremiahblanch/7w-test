@@ -13,8 +13,12 @@ const Outer = styled.div`
     bottom: 0;
     transition: transform 400ms ease;
     transform: translateX(${(props) => props.visible ? '0' : '-100%'});
-    width: 300px; /*TODO*/
+    width: 100%;
     z-index: 1;
+
+    @media (min-width: 768px) {
+        width: 50%;
+    }
 `;
 
 
