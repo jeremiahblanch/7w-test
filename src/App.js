@@ -1,25 +1,51 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import styled from 'styled-components';
+
+import Card from './Card.js'
+
+const Container = styled.div`
+    align-items: stretch;
+    background-color: #000;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+`;
+// const Panel = styled.div``;
+
+
+// Test Data
+// TODO - move to sepaarate file
+
+const SHOWS = 'Gold Digger.jpeg Liar.jpeg Little Women- LA.jpeg MKR.jpeg Pooch Perfect.jpeg Revolution.jpeg Smallville.jpeg The Good Doctor.jpeg The Resident.jpeg Transformed.jpeg'
+    .split('.jpeg')
+    .map(prefix => {
+        let pt = prefix.trim();
+
+        return !!pt && {
+            id: pt,
+            image: `${pt}.jpeg`,
+            title: pt,
+        };
+    })
+    .filter(prefix => !!prefix);
+
 
 function App() {
+
+    const updateDetail = () => { };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+          {SHOWS.map(({id, image, title}) => (
+              <Card
+                key={id}
+                image={image}
+                  onClick={updateDetail(id)}
+                title={title}
+            />
+        ))}
+    </Container>
   );
 }
 
