@@ -13,12 +13,34 @@ jeremiahblanch@gmail.com
     1. this at <https://jeremiahblanch.github.io/7w-test/>
     2. the solution at <https://jeremiahblanch.github.io/7w-test-build/>
 
-- The expected results screen shots were different sizes and zooms. I derived the following rules for the card sizes:
-   - below 375px - card should be full width of container
+- The expected results screen shots were different sizes and zooms. I I derived the following rules for the card sizes:
+   - The image are rendered at 2x resolution. Using the Zoom % written in the image, I found that each screen shot becomes `width of device in pixels = device width * zoom % * 2`. So this ratio of `device width * zoom% * 2` was applied to the cards in the different images
+   - 375px - the cards are 320px wide
+            320px
+            margin of 20px vertical 27.5px horizontal
+   - so below 375px, down to 320px - card should be full width of container
+
+   - at 768px - still 320px wide - in columns of 2
+        other side margin is 21.5px
+        or perhaps 20px - vertical too
+        20px below each
+   - what happens between 375px and 767px? I assume the cards fill the screen
+
+   - at 812px (iPhone sideways) - its 352px wide
+   - 352 less 320 = 32. 812 less 768 is 44. For every 44 pixels in width the card size increases by 32px
+   - at this rate at 1023pix it would be 320px + (1023 - 768) * (32 / 44) = 505.4 px
+   - But at at 1024px - it is 385px wide
+   - at 1440px - it is 385px wide
+   - at 2560px - it is 385px wide
+   - The max width is 385px
+    - I will let it grow proportionately until then
+    - Simplifying the formula above is 320px + (width - 100%) * 0.73
+
    - between 375 and 767 - don't know. I have assumed it is full width but the designers may in fact want it to be max-width of 350 px
    - between 768 and 1023 - 350 px
    - above 1024 - 385px
    - I checked by measuring the pixels and then multiplying by (the pixel size written in the top of the screen) divided by (how wide the device screen was in pixels in the image). I have not made these pixel perfect, just close enough, which is fine for this exercise. Normally in a case like this I would clarify the exact rules with the designer or use invision or some other tool where the element size would be recorded.
+
 - I haven't looked at preloading the image or using place holders so that the cards have the correct shape before the images load. This is more noticeable now the app is hosted remotely.
 - I haven't looked in detail at the font sizes, or the font, or the correct tint on the caption overlay
 - I have not checked if the padding rules are different at different media widths
@@ -31,6 +53,7 @@ jeremiahblanch@gmail.com
 - I used the test framework that came with `create-react-app`. I haven't written tests in about a year, and they were done by adapting Storybook stories into Jest tests for a Reat Native mobile app. So this was a bit of a blind attempt. I had to look up a good way to address Styled Components in the tests without adding unnecessary ids to the elements. The tests had many parts that needed to be re-used so I abstracted these to re-usable functions. I'm not sure if the pattern I chose was the most appropriate but wouldn't know a better answer until I had written more tests or seen complete tests for another component.
 
 ### What could you I done better if time was not a constraint?
+- The 7 logo should be an SVG
 - ARIA, accessibility. I added one `aria-describedby` because I was going to use it in tests (`getByRole`) but ended up using the technique described above to find elements by their styled component class name. I left this in, but have not addressed any other accessibility aspects. Testing through roles not styled components is probably the very best way to test.
 - The image component should be a separate re-usable styled component, and encapsulate the logic of different src images using srcset. This would make the tests more robust. See comments in the tests. I would also look into giving the element a size before it loads, or perhaps use a CSS `background-image` for the image, with  the style trick of `height: 0`, `padding-bottom: {aspect-ratio-of-image}%`, `background-size: cover`, `width: 100%`.
 - Ensure pixel perfect details on image sizes, paddings, fonts
