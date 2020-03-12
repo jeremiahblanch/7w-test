@@ -10,12 +10,12 @@ const Container = styled.div`
     align-items: stretch;
     display: flex;
     flex-direction: column;
-    padding: 0;
+    padding: 0 0 20px 0;
 
     @media (min-width: 768px) {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 `;
 
