@@ -1,3 +1,4 @@
+// TODO - some nifty way of just reading the list of files directly
 export default 'Gold Digger.jpeg Liar.jpeg Little Women- LA.jpeg MKR.jpeg Pooch Perfect.jpeg Revolution.jpeg Smallville.jpeg The Good Doctor.jpeg The Resident.jpeg Transformed.jpeg'
     .split('.jpeg')
     .map(prefix => {

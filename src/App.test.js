@@ -1,11 +1,12 @@
 import React from 'react';
-import { render, fireEvent, wait, waitForDomChange } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import App from './App';
 
 import Card from './Card.js'
 import Panel from './Panel.js'
 
 import mocks from './mocks.js'
+const BRAND_IMG_URL = '7plus.png';
 
 const cardClass = Card({}).type.styledComponentId;
 const panelClass = Panel({}).type.styledComponentId;
@@ -27,9 +28,9 @@ const initiatePanelForCardAtIndex = (cardIndex) => {
 const getImagesFromCard = (card) => {
     const imgs = card.getElementsByTagName('img');
 
-    // Just using array indexes below this will break if the order of the element changes.
-    // If we were going to use styled components for the actual image and brands elements,
-    // then we could define imgClass and brandClass at the top, like we did with cardClass, panelClass
+    // Just using array indexes below this will break if the order of the elements changes.
+    // If we were going to use styled components for the actual image and brand elements,
+    // then we could define imgClass and brandClass at the top (like we did with cardClass, panelClass)
     // and use those selectors to find the return the correct elements
     return {
         content: imgs[0],
@@ -41,7 +42,7 @@ const expect_cardHasBrandAndImg = (card, imageUrl) => {
     const { brand, content } = getImagesFromCard(card);
 
     expect(content).toHaveAttribute('src', expect.stringContaining(imageUrl));
-    expect(brand).toHaveAttribute('src', expect.stringContaining('7plus.png'));
+    expect(brand).toHaveAttribute('src', expect.stringContaining(BRAND_IMG_URL));
 }
 
 
@@ -57,7 +58,7 @@ test('renders images as cards', () => {
 
 test('clicking a card shows the panel and shows selected card in the panel', () => {
     render(<App />);
-    const { card, panelCard } = initiatePanelForCardAtIndex(0);
+    const { card, panel, panelCard } = initiatePanelForCardAtIndex(0);
     expect(panel).toBeVisible();
     expect_cardHasBrandAndImg(panelCard, unescape(getImagesFromCard(card).content.attributes.src.value));
 });
