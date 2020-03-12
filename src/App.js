@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Card from './Card.js'
 import Panel from './Panel.js'
 
-import SHOWS from './mocks.js'
+import mocks from './mocks.js'
 
 
 const Container = styled.div`
@@ -38,7 +38,7 @@ const App = () => {
 
     return (
         <Container>
-            {SHOWS.map(show => (
+            {mocks.map(show => (
                 <Card
                     key={show.id}
                     image={show.image}

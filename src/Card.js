@@ -51,17 +51,20 @@ function Card({ id, image, onClick, title }) {
         return false;
     }
 
+    const handle = title ? title.replace(/\s/g, '_') : '';
+
   return (
       <Anchor
           href=""
           onClick={handleClick}
       >
-          <picture>
-              <Img src={'/assets/' + image} alt={title}></Img>
-          </picture>
+            <Img
+                aria-describedby={`title_${handle}`}
+                src={'/assets/' + image} alt={title}
+            ></Img>
           <Meta>
               <ChannelBrand src="/assets/7plus.png"></ChannelBrand>
-              <Title>{title}</Title>
+              <Title id={`title_${handle}`}>{title}</Title>
             </Meta>
     </Anchor>
   );
