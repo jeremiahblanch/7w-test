@@ -35,7 +35,7 @@ jeremiahblanch@gmail.com
 - The image component should be a separate re-usable styled component, and encapsulate the logic of different src images using srcset. This would make the tests more robust. See comments in the tests. I would also look into giving the element a size before it loads, or perhaps use a CSS `background-image` for the image, with  the style trick of `height: 0`, `padding-bottom: {aspect-ratio-of-image}%`, `background-size: cover`, `width: 100%`.
 - Ensure pixel perfect details on image sizes, paddings, fonts
 - The brand logo element should be a separate styled component. This would also help the tests.
-- I used a `transform: translateX` to show and hide the panel. For testing, I merely tested that style property was there. Perhaps a better test would be agnostic as to how the panel was moved off screen and tested visibility.
+- I used a `transform: translateX` to show and hide the panel. For testing, I merely tested that style property was there. Perhaps a better test would be agnostic as to how the panel was moved off screen and tested visibility. OR to also test for the 400ms.
 
 ---
 
