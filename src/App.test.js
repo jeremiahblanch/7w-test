@@ -45,7 +45,6 @@ const expect_cardHasBrandAndImg = (card, imageUrl) => {
     expect(brand).toHaveAttribute('src', expect.stringContaining(BRAND_IMG_URL));
 }
 
-
 // Tests
 test('renders images as cards', () => {
     render(<App />);
