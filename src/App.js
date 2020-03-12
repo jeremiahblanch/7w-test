@@ -10,7 +10,7 @@ const Container = styled.div`
     align-items: stretch;
     display: flex;
     flex-direction: column;
-    padding: 8px;
+    padding: 0;
 
     @media (min-width: 768px) {
         flex-direction: row;

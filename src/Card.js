@@ -3,14 +3,20 @@ import styled from 'styled-components';
 
 const Anchor = styled.a`
     display: block;
-    margin: 8px 16px;
+    flex: 1 0 100%;
+    margin: 20px 28px 0 28px;
     position: relative;
 
     @media (min-width: 768px) {
-        flex: 0 0 350px; /* Not enough informaiton in screen shots on exact rules here */
+        max-width: 385px;
     }
-    @media (min-width: 1024px) {
-        flex: 0 0 385px; /* Not enough informaiton in screen shots on exact rules here */
+    @media (min-width: 812px) {
+        margin: 20px 10px 0;
+    }
+
+    @media (min-width: 1260px) {
+        /* When we can fit 3 wide */
+        margin: 14px 15px 0;
     }
 `;
 const Img = styled.img`
@@ -18,29 +24,35 @@ const Img = styled.img`
 `;
 
 const Meta = styled.div`
-    align-items: stretch;
+    align-items: center;
     bottom: 0;
-    background-color: #00000033; /* TODO */
+    box-sizing: border-box;
+    background-color: #00000088;
     display: flex;
-    height: 2rem; /* TODO */
+    height: 22%;
     left: 0;
-    padding: 1rem; /* TODO */
+    padding: 12px;
     position: absolute;
     right: 0;
     z-index: 1;
+
+    @media (min-width: 768px) {
+        height: 63px;
+    }
 `;
 const ChannelBrand = styled.img`
-    height: 100%; /* TODO */
+    height: 100%;
+    margin-right: 12px;
 `;
 
 const Title = styled.h4`
-    color: white; /* TODO */
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 28px; /* TODO */
-    margin: 0 0 0 1rem; /* TODO */
+    font-size: 18px;
+    margin: 0;
 
     @media (min-width: 768px) {
-        font-size: 24px; /* TODO */
+        font-size: 22px;
     }
 `
 
