@@ -6,7 +6,6 @@ import Panel from './Panel.js'
 
 import mocks from './mocks.js'
 
-
 const Container = styled.div`
     align-items: stretch;
     display: flex;
