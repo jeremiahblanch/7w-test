@@ -5,18 +5,13 @@ const Anchor = styled.a`
     display: block;
     flex: 1 0 100%;
     margin: 20px 28px 0 28px;
+    min-width: 320px;
     position: relative;
 
     @media (min-width: 768px) {
         max-width: 385px;
-    }
-    @media (min-width: 812px) {
-        margin: 20px 10px 0;
-    }
-
-    @media (min-width: 1260px) {
-        /* When we can fit 3 wide */
-        margin: 14px 15px 0;
+        flex: 1 0 0;
+        margin: 20px 20px 0 20px;
     }
 `;
 const Img = styled.img`
@@ -29,16 +24,13 @@ const Meta = styled.div`
     box-sizing: border-box;
     background-color: #00000088;
     display: flex;
-    height: 22%;
+    height: 30%;
     left: 0;
+    max-height: 63px;
     padding: 12px;
     position: absolute;
     right: 0;
     z-index: 1;
-
-    @media (min-width: 768px) {
-        height: 63px;
-    }
 `;
 const ChannelBrand = styled.img`
     height: 100%;
