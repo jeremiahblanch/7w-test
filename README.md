@@ -1,4 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Jeremiah Blanch
+
+## 7West Tech Test
+
+### your assumptions
+- I haven't looked at preloading the image or using place holders so that the cards have the correct shape before the images load
+- The expected results screen shots were different sizes. No specific rules were given for the card sizing. It seems obvious the cards are full width on narrow screens. For the screens > 768, eg iphone X, it looks like it is 350px. For the even large screens, it looks like approx 385px. I checked by measuring the pixels and then multiplying by (the pixel size written in the top of the screen) divided by (how wide the screen shot screen was in pixels) shot. I have not made these pixel perfect, just close enough, which is fine for this exercise. Normally in a case like this I would clarify the exact rules with the designer or use invision or some other tool where the element size woudl be recorded.
+- Equally I haven't looked in detail at the font sizes, or the font, or the correct tint on the caption overlay
+- I have not checked if the padding rules are different at different media widths
+
+### the reason for the chosen approach
+- I followed the instructions and didn't use anything else in terms of packages.
+- My App.js has a Container, Card, and Panel components. The Panel component is inside the Container, simply because each react component needs one root element, and I didn't want to make another wrapper element. As the Panel is `position: fixed` it doesn't interfere with the flex layout of the Cards in the Container
+- I haven't done much I the way of interactivity tests so that was a bit new for me; I haven't written tests in about a year so I had to look up a good way to address Styled Components in the tests without adding unnecessary ids to the elements.
+
+### what could you have done better if time was not a constraint
+- The image component should be a separate re-usable styled component, and encapsulate the logic of different src images using srcset. This would make the tests more robust. See comments in the tests
+- Ensure pixel perfect details on image sizes, paddings, fonts
+- The brand logo element should be a separate styled component. This would also help the tests.
+- I used a transform: translateX to show and hide the panel. For testing, I merely tested that style property. Perhaps a better test would be agnostic as to how the panel was moved off screen.
+
+---
 
 ## Available Scripts
 
