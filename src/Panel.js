@@ -24,10 +24,7 @@ const Outer = styled.div`
 
 function Panel({onClick, visible, show}) {
     return (
-        <Outer
-            onClick={onClick}
-            visible={visible ? 1 : 0}
-        >
+        <Outer visible={visible ? 1 : 0}>
             {show ? <Card
                     key={show.id}
                     image={show.image}
