@@ -23,12 +23,6 @@ const Outer = styled.div`
     }
 `;
 
-
-const Img = styled.img`
-    width: 100%;
-`;
-
-
 function Panel({onClick, visible, show}) {
   return (
       <Outer
