@@ -29,7 +29,7 @@ const getImagesFromCard = (card) => {
     const imgs = card.getElementsByTagName('img');
 
     // Just using array indexes below this will break if the order of the elements changes.
-    // If we were going to use styled components for the actual image and brand elements,
+    // If we were going to use re-usable styled components for the actual image and brand elements,
     // then we could define imgClass and brandClass at the top (like we did with cardClass, panelClass)
     // and use those selectors to find the return the correct elements
     return {

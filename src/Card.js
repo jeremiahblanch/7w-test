@@ -1,5 +1,4 @@
 import React from 'react';
-
 import styled from 'styled-components';
 
 const Anchor = styled.a`
@@ -8,9 +7,11 @@ const Anchor = styled.a`
     position: relative;
 
     @media (min-width: 768px) {
-        flex: 0 0 300px;
+        flex: 0 0 350px; /* Not enough informaiton in screen shots on exact rules here */
     }
-
+    @media (min-width: 1024px) {
+        flex: 0 0 385px; /* Not enough informaiton in screen shots on exact rules here */
+    }
 `;
 const Img = styled.img`
     width: 100%;
@@ -34,6 +35,7 @@ const ChannelBrand = styled.img`
 
 const Title = styled.h4`
     color: white; /* TODO */
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 28px; /* TODO */
     margin: 0 0 0 1rem; /* TODO */
 

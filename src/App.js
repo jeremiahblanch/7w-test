@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import styled from 'styled-components';
 
 import Card from './Card.js'
@@ -10,17 +9,15 @@ import mocks from './mocks.js'
 
 const Container = styled.div`
     align-items: stretch;
-    background-color: #000;
-  display: flex;
-  flex-direction: column;
-  padding: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
 
-  @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    @media (min-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
-
 `;
 
 const App = () => {
@@ -48,9 +45,9 @@ const App = () => {
             ))}
             <Panel
                 onClick={handlePanelClick}
+                show={selection}
                 visible={wantPanel}
-                show={selection}>
-            </Panel>
+            />
         </Container>
   );
 }
