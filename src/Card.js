@@ -61,11 +61,12 @@ function Card({ id, image, onClick, title }) {
           onClick={handleClick}
       >
             <Img
+                alt={title}
                 aria-describedby={`title_${handle}`}
-                src={'assets/' + image} alt={title}
+                src={'assets/' + image}
             ></Img>
           <Meta>
-              <ChannelBrand src="assets/7plus.png"></ChannelBrand>
+              <ChannelBrand src="assets/7plus.png" alt="7Plus Logo"></ChannelBrand>
               <Title id={`title_${handle}`}>{title}</Title>
             </Meta>
     </Anchor>
